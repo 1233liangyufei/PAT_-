@@ -27,24 +27,23 @@ int main() {
 		else if(mod == 1) {
 			A2 += (sign*x);
 			sign = -sign;
-			count++;//count记录计算次数
+			count++;//count记录计算次数，判断是否数字存在
 		}
 		else if (mod == 2) {
 			A3++;//A3记录模为2数字个数
 		}
 		else if (mod == 3) {
-			sum2 += x;
-			count2++;
+			sum2 += x;//记录数字总和
+			count2++;//记录数字个数
 		}
 		else if (mod == 4) {
-			if (A5 < x)  A5 = x;
+			if (A5 < x)  A5 = x;//记录最大值
 		}
 
 	}
 	if(count2!=0)
-	A4 = float(sum2) / count2;
+	A4 = float(sum2) / count2;//计算平均数
 	
-	//printf("%d %d %d %.1f %d",  A2, A3, A4, A5);
 	if (A1 != 0) {
 		printf("%d ", A1);
 	}
@@ -79,10 +78,7 @@ int main() {
 
 /*
 总结：
-1. 对数组的循环左移，通过先将数组整体右移，再将超出部分移动胡来
-2. 将数据超出部分再移动回来
-3. 因为移动M位与移动M%N位是一样的，通过M = M%N减少操作次数
-4. 官方解答比较取巧，他并没有对数组进行操作，而是通过改变输出方式来达到循环左移，他先输出后几位，再输出前几位
-
+1. 对于A2 当A2==0时也不能保证不存在，可能交错相加=0，因此用count来判断是否存在
+2. A4输出小数，定义为float
 
 */
